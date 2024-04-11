@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
     <h1>TandemNotas</h1>
-    <div>
-        <label for="date">Introduce una fecha de referencia</label>
-        <input type="date" id="date">
+        <div class='nota'id="nota" contenteditable="true">
+            Edita la nota
+        </div>
+    <button id="add-nota">Añadir Nota</button>
+    <button id="clean-notas">Limpiar notas</button>
+    <div id="display-notas">
+        <div class='no-nota'>
+            <span>No tienes notas guardadas</span>
+         </div>
     </div>
-    <div>
-        <label for="nota">Texto de la nota</label>
-        <textarea id="nota" cols="30" rows="10"></textarea>
-    </div>
-    <button id="agregar">Agregar Nota</button>
-    <div id="mostrar-notas">
-
-    </div>
-    
-    <script src="main.js"></script>
+</div>
+    <script src="main2.js"></script>
 </body>
 </html>

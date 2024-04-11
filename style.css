@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding:0;
+ 
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+
+}
+.container{
+    max-width: 960px;
+    margin:0 auto;
+    padding:1em;
+    text-align:center;
+
+}
+.nota{
+    font-family: monospace;
+    font-size:2rem;
+    padding:.5em;
+    background-color:yellow;
+    display:blocK;
+    width:200px;
+    height: 200px;
+    text-align:center;
+    box-shadow: 6px 6px 12px;
+    margin:1em auto;
+}
+#display-notas{
+    min-width: 75%;
+    background-color: aqua;
+    min-height:200px;
+    display:blocK
+
+}
