@@ -1,12 +1,12 @@
 // capturamos los id necesarios del DOM
 const nota= document.getElementById('nota')
 const date= document.getElementById('date')
-const showNotas= document.getElementById('show-notas')
-const addNota= document.getElementById('add-nota')
+const showNotas= document.getElementById('display-notas')
+const btnAddNota= document.getElementById('btn-add-nota')
 const cleanNotas= document.getElementById('clean-notas')
 const displayNotas= document.getElementById('display-notas')
 // agregamos interactividad a los botones
-addNota.addEventListener('click',function (){
+btnAddNota.addEventListener('click',function (){
   agregarNota();
   mostrarNotas();
 } )
