@@ -1,71 +1,62 @@
-// capturamos los id necesarios del DOM
-const nota= document.getElementById('nota')
-const date= document.getElementById('date')
-const showNotas= document.getElementById('display-notas')
-const btnAddNota= document.getElementById('btn-add-nota')
-const cleanNotas= document.getElementById('clean-notas')
-const displayNotas= document.getElementById('display-notas')
-// agregamos interactividad a los botones
-btnAddNota.addEventListener('click',function (){
-  agregarNota();
-  mostrarNotas();
-} )
-cleanNotas.addEventListener('click', borrarNotas )
+document.addEventListener('DOMContentLoaded',function(){
+    showInfo();
+})
 
+document.getElementById('btn-add-nota').addEventListener('click', function(){
+    getInfo(nota)
+    setLocalInfo(nota)
+    showInfo()
+    
+})
+document.getElementById('btn-clean-notas').addEventListener('click', function(){
+    cleanInfo()
+    showInfo()
 
-function agregarNota(){
-  let clave = date.value
-  let valor= nota.textContent
-  localStorage.setItem(clave, valor)
-  console.log(clave)
-  console.log(valor)
+})
 
-
+// recoger la información 
+function getInfo(){
+    // capturamos lo que el usuario introduce
+    let nota = document.getElementById('nota').innerHTML
+    console.log(nota)
+    return nota
+    
 }
-function mostrarNotas(){
-  for (let i = 0; i < localStorage.length; i++) {
-    let clave = localStorage.key(i) // Clave donde esta guardada la info del Est.
-    let valor = localStorage.getItem(clave) // Info del Est. en formato JSON
-    if(localStorage.length>0){
-      displayNotas.innerHTML+=`
-      <div class='nota'>
-         <small>${clave}</small>
-         <span class='nota'>${valor}</span>
-      </div>
-      `
+// alamacenarla en localStorage
+function setLocalInfo(nota){
+    // guardaría la info en localStorage
+    const clave = Date.now();
+  localStorage.setItem(clave,getInfo(nota))
+   
+}
 
-    }else{
-      displayNotas.innerHTML=`
-    <div class='nota'>
-       <span class='nonota'>No tienes notas guardadas</span>
-    </div>
-    `
+// leerla y sacarla por pantalla
+function showInfo(){
+    // leerla y mostrarla por pantalla
+    //  sino hay notas mostra no hay nada
+    // limpiamos la pantalla
+    document.getElementById('show-notas').innerHTML= ''
+    for (let index = 0; index < localStorage.length; index++) {
+        let clave = localStorage.key(index)
+        let valor = localStorage[clave]
+        console.log(valor)  
+        let elemento = `
+        <div class='lista-notas'>
+        ${valor}
+        </div>
+        `
+        document.getElementById('show-notas').innerHTML+= elemento
 
     }
+
     
-  }
-
-}
-function borrarNotas(){
-  localStorage.clear();
-  displayNotas.innerHTML=`
-  <div class='nota'>
-     <span>No tienes notas guardadas</span>
-  </div>
-  `
 }
 
-// //Api de localStorage
-// localStorage.setItem('tarea02','fiesta loca')
-// let tarea= localStorage.getItem('tarea02')
-// console.log(tarea)
-// console.log(localStorage.length)
+// limpiarla
 
-
-// for (let i = 0; i < localStorage.length; i++) {
-//     let key = localStorage.key(i) // Clave donde esta guardada la info del Est.
-//     console.log(key)
-//     tarea = localStorage.getItem(key) // Info del Est. en formato JSON
-//     console.log(tarea)
-//   }
-  //localStorage.clear();
+function cleanInfo(){
+    // limpiar el local storage y limpiar la pantaal
+    // Elimina todos los elementos
+localStorage.clear();
+    console.log('En localstorage no hay notas')
+}
