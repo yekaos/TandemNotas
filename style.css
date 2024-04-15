@@ -15,22 +15,24 @@ body{
     text-align:center;
 
 }
-.nota{
+.nota, .lista-notas{
     font-family: monospace;
     font-size:2rem;
     padding:.5em;
     background-color:yellow;
     display:blocK;
-    width:200px;
-    height: 200px;
+    width:150px;
+    height: 150px;
     text-align:center;
     box-shadow: 6px 6px 12px;
     margin:1em auto;
 }
-#display-notas{
+#show-notas{
     min-width: 75%;
     background-color: aqua;
     min-height:200px;
-    display:blocK
+    display:block;
+    display:flex;
+    flex-wrap: wrap;
 
 }
